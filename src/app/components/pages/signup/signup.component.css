@@ -1,0 +1,156 @@
+.main-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.label-text{
+    font-size: 16px;
+}
+.s-title{
+    font-size: 48px;
+}
+.s-left{
+    flex:1;
+    margin:2em 6em;
+
+}
+.s-right{
+    flex:1;
+    max-width: 630px;
+}
+.s-right img{
+    width: 100%
+}
+
+.s-form-group{
+    margin-top: 1em;
+    max-width: 500px;
+    /* border: 1px solid blue; */
+
+
+}
+.s-form-security{
+    display: flex;
+    margin-top: 1em;
+    gap: 10%;
+    /* max-width: 500px; */
+   justify-content: space-between;
+}
+
+.s-from-control{
+    /* border:1px solid green; */
+    /* max-width: 250px; */
+    /* margin-left: 1em; */
+    width: 100%;
+
+}
+
+.form-control-security{
+    max-width: 100%;
+    padding: 1em;
+    margin-top:.7em;
+    border-radius: 5px;
+    border:1px solid gray;
+    outline: none;
+    
+}
+.form-control-cpassword{
+    /* margin-left: 20px; */
+}
+.s-form-control{
+    margin-top: 1em;
+
+}
+
+.s-form-input{
+    width: 100%;
+    /* width: 20em; */
+    padding: 1em;
+    margin-top: .5em;
+    border-radius: 5px;
+    border:1px solid gray;
+    outline: none;
+}
+.btn-links{
+    margin-top: 1em;
+}
+.btn-links p{
+    margin-top: 3em;
+}
+.btn-links p a{
+    text-decoration: none;
+    margin-left: 1em;
+}
+.s-form-term{
+    display: flex;
+
+}
+
+.btn:enabled{
+    width: 250px;
+    padding: .6em;
+    background-color: #25316D;
+    font-size: 1rem;
+    margin-top: 1em;
+    border-radius: 5px;
+    border: 1px solid #25316D;
+    color: rgba(255, 255, 255, .8);
+    cursor: pointer;
+
+    
+}
+
+.btn:disabled{
+    width: 250px;
+    padding: .6em;
+   
+
+    
+}
+.btn:enabled:hover{
+    background-color: blue;
+}
+.s-form-validation{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+.error-validation{
+    color: red;
+    font-size: .8rem;
+    margin-right: -22px;
+}
+
+@media (max-width:832px){
+    .main-container{
+
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+   
+    .s-right img{
+        display: none;
+    }
+    .s-form-group{
+        max-width: 700px;
+    }
+
+    .s-form-security{
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .s-form-input{
+        width:100% ;
+    }
+    .s-from-control{
+        margin-bottom: 1em;
+    }
+
+
+}
+
+
+
+

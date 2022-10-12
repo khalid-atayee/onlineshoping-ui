@@ -1,0 +1,89 @@
+<div class="main-container">
+    <div class="s-left">
+        <h2 class="s-title">Sign Up</h2>
+        <form [formGroup]="userForm" (ngSubmit)="signupData()">
+
+        <div class="s-form-group">
+            <div class="s-form-validation">
+                <label class="label-text" for="username">Username</label>
+                <div *ngIf="username.touched && username.invalid" >
+                    <div class="error-validation" *ngIf="username.errors.required">Username is required</div>
+                    <div class="error-validation" *ngIf="username.errors.minlength">Username must be more then 5 character</div>
+                </div>
+
+            </div>
+            <div class="form-input">
+
+                <input type="text" formControlName="username" class="s-form-input" name="username" id="username">
+            </div>
+        </div>
+
+        <div class="s-form-group">
+            <div class="s-form-validation">
+
+                <label class="label-text" for="email">Email</label>
+                <div *ngIf="email.touched && email.invalid" >
+                    <div class="error-validation" *ngIf="email.errors.required">Email is required</div>
+                    <div class="error-validation" *ngIf="email.errors.pattern">Email is not valid</div>
+                </div>
+            </div>
+            
+            <div class="form-input">
+
+                <input type="text" formControlName="email" class="s-form-input" name="email" id="email">
+            </div>
+
+        </div>
+        <div class="s-form-group s-form-security">
+            <div class="s-from-control">
+                <div class="s-form-validation">
+
+                    <label class="label-text" for="password">Password</label>
+                    <div *ngIf="password.touched && password.invalid" >
+                        <div class="error-validation" *ngIf="password.errors.required">Password is required</div>
+                        <div class="error-validation" *ngIf="password.errors.minlength">Password must be at least 8 char</div>
+                    </div>
+                </div>
+
+                <input type="password" formControlName="password" class="s-form-input form-control-security" name="password" id="password">
+            </div>
+            <div class="s-from-control form-control-cpassword">
+                <div class="s-form-validation">
+
+                    <label class="label-text" for="cpassword">Confirm Password</label>
+                    <div *ngIf="cpassword.touched && cpassword.invalid">
+                         <div class="error-validation" *ngIf="cpassword.errors.required">this field is required</div>
+                        <div class="error-validation" *ngIf="cpassword.errors.minlength">Password must be at least 8 char</div>
+
+                    </div>
+                </div>
+                <input type="text"  formControlName="cpassword" class="s-form-input form-control-security " name="cpassword" id="cpassword" >
+            </div>
+        </div>
+       
+        <div class="s-form-control">
+            <div class="s-form-term">
+                <input type="checkbox" formControlName="term" class="checkbox" name="term" id="term" required>
+
+                <label class="label-text" for="term">I agree to term and condition</label>
+                
+            </div>
+            <div *ngIf="term.touched && term.invalid">
+            
+                <div class="error-validation" *ngIf="term.errors.required">please accept term and condition</div>
+            </div>
+                <div class="btn-links">
+                <button [disabled]="!userForm.valid" class="btn" >Create Account</button>
+                <p>Already have an account? <a routerLink="">Log in</a></p>
+            </div>
+            <!-- <button [disabled]="!userForm.valid" class="btn" >ok</button> -->
+
+        </div>
+    </form>
+        
+
+    </div>
+    <div class="s-right">
+        <img src="../../../../assets/robot.png" alt="a tech image of robot that has one leg and one hand">
+    </div>
+</div>
