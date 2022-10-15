@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../authentication.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
   userForm:any;
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder,private authService:AuthenticationService) { 
   }
   ngOnInit(): void {
     this.userForm=this.userForm=this.fb.group({
@@ -35,10 +36,10 @@ export class SignupComponent implements OnInit {
     return this.userForm.get('term')
   }
 
-  signupData(){
-    console.log(this.userForm.value);
-    // console.log('ok')
-
+  registerUser(){
+    this.authService.registerUser(this.userForm.value).subscribe((res)=>{
+      console.log()
+    })    
   }
 
 

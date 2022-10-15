@@ -1,0 +1,23 @@
+<div class="parent-container">
+    <div class="verification-container">
+        <h2>
+            Verification
+        </h2>
+        <h3>Verification Code</h3>
+        <p>Please enter verification code sent to your email address.</p>
+
+        <div class="main-content">
+            <div class="input-container">
+                <input type="text" autofocus #text1 (keyup)="move($event,'',text1,text2)" maxlength="1" name="value1" class="value" id="value1">
+                <input type="text" #text2 (keyup)="move($event,text1,text2,text3)" maxlength="1" name="value2" class="value" id="value2">
+                <input type="text" #text3 (keyup)="move($event,text2,text3,text4)" maxlength="1" name="value3" class="value" id="value3">
+                <input type="text" #text4 (keyup)="move($event,text3,text4,'')" maxlength="1" name="value4" [autofocus]="true" class="value" id="value4">
+            </div>
+            
+            <button class="btn">Verify</button>
+            <a class="resend-link" href="#">Resend otp</a>
+        </div>
+    
+    </div>
+
+</div>
