@@ -8,6 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { VerificationComponent } from './components/pages/verification/verification.component';
 import { AuthenticationService } from './components/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
+import { HeaderComponent } from './components/pages/dashboardContent/header/header.component';
+import { AsideComponent } from './components/pages/dashboardContent/aside/aside.component';
 
 
 const appRoute = 
@@ -22,6 +25,9 @@ const appRoute =
     SignupComponent,
     SigninComponent,
     VerificationComponent,
+    DashboardComponent,
+    HeaderComponent,
+    AsideComponent,
   
   ],
   imports: [
