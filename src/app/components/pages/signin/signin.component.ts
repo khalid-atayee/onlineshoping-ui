@@ -1,4 +1,6 @@
+import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../authentication.service';
 
 @Component({
   selector: 'app-signin',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  loginForm:any;
 
-  constructor() { }
+  constructor(private authService:AuthenticationService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm=this.fb.group({
+      email: ['', ],
+      password: ['']
+    })
+  }
+
+  login(){
+    this.authService.loginUser(this.loginForm.value).subscribe((data:any)=>{
+      localStorage.setItem('apiToken',data.Token);
+    });
+  }
+  goUser(){
+    this.authService.getUser().subscribe((data:any)=>{
+      console.log(data)
+    });
   }
 
 }
+

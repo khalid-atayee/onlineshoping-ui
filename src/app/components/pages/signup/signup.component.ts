@@ -9,7 +9,7 @@ import { AuthenticationService } from '../../authentication.service';
 })
 export class SignupComponent implements OnInit {
   userForm:any;
-  constructor(private fb: FormBuilder,private authService:AuthenticationService) { 
+  constructor(private fb: FormBuilder,private authService:AuthenticationService) {
   }
   ngOnInit(): void {
     this.userForm=this.userForm=this.fb.group({
@@ -38,8 +38,7 @@ export class SignupComponent implements OnInit {
 
   registerUser(){
     this.authService.registerUser(this.userForm.value).subscribe((res)=>{
-      console.log()
-    })    
+    })
   }
 
 
