@@ -17,7 +17,7 @@ const appRoute =
 [
   {path:'',component:SigninComponent},
   {path:'signUp',component:SignupComponent},
-  {path:'verification',component:VerificationComponent}
+  {path:'verification/:id',component:VerificationComponent}
 ]
 @NgModule({
   declarations: [

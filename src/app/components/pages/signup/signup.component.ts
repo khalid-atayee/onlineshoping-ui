@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../../authentication.service';
 
 @Component({
@@ -9,10 +10,11 @@ import { AuthenticationService } from '../../authentication.service';
 })
 export class SignupComponent implements OnInit {
   userForm:any;
-  constructor(private fb: FormBuilder,private authService:AuthenticationService) {
+  data:any;
+  constructor(private router:Router,private fb: FormBuilder,private authService:AuthenticationService) {
   }
   ngOnInit(): void {
-    this.userForm=this.userForm=this.fb.group({
+    this.userForm=this.fb.group({
       username:['', [Validators.required,Validators.minLength(3)]],
       email:['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password : ['',[Validators.required,Validators.minLength(8)]],
@@ -38,7 +40,12 @@ export class SignupComponent implements OnInit {
 
   registerUser(){
     this.authService.registerUser(this.userForm.value).subscribe((res)=>{
+      this.data = res;
+      // console.log(res)
+      this.router.navigate(['verification',this.data.id]);
     })
+
+
   }
 
 

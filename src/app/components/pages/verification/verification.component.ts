@@ -1,4 +1,7 @@
+import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../authentication.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-verification',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verification.component.css']
 })
 export class VerificationComponent implements OnInit {
- 
-  constructor() { }
+  otpForm:any;
+  verificationId:any;
+  constructor(private fb:FormBuilder,private authService:AuthenticationService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.otpForm=this.fb.group({
+      value1:['',],
+      value2:['',],
+      value3:['',],
+      value4:['',],
+    })
+    this.verificationId = Number(this.route.snapshot.paramMap.get('id'));
+   
   }
   move(event:any,prev:any, curr:any,next:any){
     let length = curr.value.length;
@@ -26,8 +38,14 @@ export class VerificationComponent implements OnInit {
       }
     }
 
-    // if(length==checkLength){
-    // }
+  }
+
+  sendOtp(){
+    this.authService.userAuth(this.otpForm.value,this.verificationId).subscribe(data=>{
+
+    })
+    
+
   }
 
 }
