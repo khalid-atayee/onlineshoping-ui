@@ -22,10 +22,16 @@ export class AuthenticationService {
     .set('Content-Type', 'application/json')
     return this.httpClient.get('http://127.0.0.1:8000/api/user',{headers: header});
   }
+
   userAuth(otpForm:any,id:any)
   {
 
     return this.httpClient.post('http://127.0.0.1:8000/api/auth/verify',{otpForm,id});
+    
+  }
+
+  loggedIn(){
+    return !!localStorage.getItem('apiToken');
     
   }
 }

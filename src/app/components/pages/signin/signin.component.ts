@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../authentication.service';
@@ -10,7 +11,7 @@ import { AuthenticationService } from '../../authentication.service';
 export class SigninComponent implements OnInit {
   loginForm:any;
 
-  constructor(private authService:AuthenticationService,private fb:FormBuilder) { }
+  constructor(private authService:AuthenticationService,private fb:FormBuilder, private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm=this.fb.group({
@@ -22,6 +23,8 @@ export class SigninComponent implements OnInit {
   login(){
     this.authService.loginUser(this.loginForm.value).subscribe((data:any)=>{
       localStorage.setItem('apiToken',data.Token);
+      this.router.navigate(['dashboard'])
+      // dashboard
     });
   }
   goUser(){

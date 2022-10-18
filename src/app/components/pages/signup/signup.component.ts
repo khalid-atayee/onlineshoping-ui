@@ -41,7 +41,6 @@ export class SignupComponent implements OnInit {
   registerUser(){
     this.authService.registerUser(this.userForm.value).subscribe((res)=>{
       this.data = res;
-      // console.log(res)
       this.router.navigate(['verification',this.data.id]);
     })
 

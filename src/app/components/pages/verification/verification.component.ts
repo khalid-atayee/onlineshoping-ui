@@ -1,7 +1,7 @@
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../authentication.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-verification',
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class VerificationComponent implements OnInit {
   otpForm:any;
   verificationId:any;
-  constructor(private fb:FormBuilder,private authService:AuthenticationService,private route:ActivatedRoute) { }
+  constructor(private fb:FormBuilder,private authService:AuthenticationService,private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.otpForm=this.fb.group({
@@ -42,6 +42,8 @@ export class VerificationComponent implements OnInit {
 
   sendOtp(){
     this.authService.userAuth(this.otpForm.value,this.verificationId).subscribe(data=>{
+      this.router.navigate(['']);
+      // console.log(data);
 
     })
     
